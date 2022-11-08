@@ -6,13 +6,20 @@ namespace Painter
 {
     public partial class PainterForm : Form
     {
+        //List<Point> _coords = new List<Point>();
 
+        private static readonly Dictionary<string, Size> brushSizes = new Dictionary<string, Size> 
+        {
+            {"small", new Size(4,4)},
+            {"medium", new Size(8,8)},
+            {"large", new Size(16,16)},
+        };
 
         private bool ShouldPaint { get; set; } = false;
 
-        private Color PaintColor { get; set; } = Color.Black;
+        private Color BrushColor { get; set; } = Color.Black;
 
-        private Size BrushSize { get; set; } = new(4,4);
+        private Size BrushSize { get; set; } = brushSizes["small"];
 
         public PainterForm()
         {
@@ -39,11 +46,53 @@ namespace Painter
             if (ShouldPaint) // check if mouse button is being pressed
             {
                 // draw circle where the mouse pointer is present
-                using Graphics graphics = PaintPanel.CreateGraphics();
+                using (Graphics graphics = PaintPanel.CreateGraphics())
                 {
-                    graphics.FillEllipse(new SolidBrush(PaintColor), e.X, e.Y, BrushSize.Width, BrushSize.Height);
+                    graphics.FillEllipse(new SolidBrush(BrushColor), e.X, e.Y, BrushSize.Width, BrushSize.Height);
                 }
+
+                /*_coords.Add(e.Location);
+                Invalidate();*/
             }
         }
+
+        private void ColorRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender == RedRadioButton)
+            {
+                BrushColor = Color.Red;
+            }
+            else if (sender == BlueRadioButton)
+            {
+                BrushColor = Color.Blue;
+            }
+            else if (sender == GreenRadioButton)
+            {
+                BrushColor = Color.Green;
+            }
+            else
+            {
+                BrushColor = Color.Black;
+            }
+        }
+
+        private void SizeRadioButton_CheckChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        /*protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            foreach(Point p in _coords)
+            {
+                using (Graphics graphics = PaintPanel.CreateGraphics())
+                {
+                    graphics.FillEllipse(new SolidBrush(BrushColor), p.X, p.Y, BrushSize.Width, BrushSize.Height);
+                }
+            }
+
+        }*/
     }
 }
