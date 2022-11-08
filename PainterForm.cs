@@ -6,7 +6,14 @@ namespace Painter
 {
     public partial class PainterForm : Form
     {
-        //List<Point> _coords = new List<Point>();
+        //List<Point> coords = new List<Point>();
+
+        private enum BrushSizes
+        {
+            Small = 4,
+            Medium = 8,
+            Large = 16,
+        }
 
         private static readonly Dictionary<string, Size> brushSizes = new Dictionary<string, Size> 
         {
@@ -19,7 +26,7 @@ namespace Painter
 
         private Color BrushColor { get; set; } = Color.Black;
 
-        private Size BrushSize { get; set; } = brushSizes["small"];
+        private int BrushSize { get; set; } = 4;
 
         public PainterForm()
         {
@@ -48,11 +55,11 @@ namespace Painter
                 // draw circle where the mouse pointer is present
                 using (Graphics graphics = PaintPanel.CreateGraphics())
                 {
-                    graphics.FillEllipse(new SolidBrush(BrushColor), e.X, e.Y, BrushSize.Width, BrushSize.Height);
+                    graphics.FillEllipse(new SolidBrush(BrushColor), e.X, e.Y, BrushSize, BrushSize);
                 }
 
-                /*_coords.Add(e.Location);
-                Invalidate();*/
+                //coords.Add(e.Location);
+                //Invalidate();
             }
         }
 
@@ -78,18 +85,36 @@ namespace Painter
 
         private void SizeRadioButton_CheckChanged(object sender, EventArgs e)
         {
-            
+            if (sender == SmallRadioButton)
+            {
+                BrushSize = (int)BrushSizes.Small;
+            }
+            else if (sender == MediumRadioButton)
+            {
+                BrushSize = (int)BrushSizes.Medium;
+            }
+            else
+            {
+                BrushSize = (int)BrushSizes.Large;
+            }
+        }
+
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            //coords.Clear();
+            PaintPanel.Invalidate();
         }
 
         /*protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
 
-            foreach(Point p in _coords)
+            foreach (Point p in coords)
             {
                 using (Graphics graphics = PaintPanel.CreateGraphics())
                 {
-                    graphics.FillEllipse(new SolidBrush(BrushColor), p.X, p.Y, BrushSize.Width, BrushSize.Height);
+                    graphics.FillEllipse(new SolidBrush(BrushColor), p.X, p.Y, BrushSize, BrushSize);
                 }
             }
 

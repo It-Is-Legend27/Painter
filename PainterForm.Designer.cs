@@ -38,6 +38,7 @@
             this.LargeRadioButton = new System.Windows.Forms.RadioButton();
             this.MediumRadioButton = new System.Windows.Forms.RadioButton();
             this.SmallRadioButton = new System.Windows.Forms.RadioButton();
+            this.ClearButton = new System.Windows.Forms.Button();
             this.ColorGroupBox.SuspendLayout();
             this.SizeGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -159,11 +160,22 @@
             this.SmallRadioButton.UseVisualStyleBackColor = true;
             this.SmallRadioButton.CheckedChanged += new System.EventHandler(this.SizeRadioButton_CheckChanged);
             // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(12, 377);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(122, 29);
+            this.ClearButton.TabIndex = 3;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
             // PainterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 369);
+            this.ClientSize = new System.Drawing.Size(598, 430);
+            this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.SizeGroupBox);
             this.Controls.Add(this.ColorGroupBox);
             this.Controls.Add(this.PaintPanel);
@@ -191,5 +203,6 @@
         private RadioButton LargeRadioButton;
         private RadioButton MediumRadioButton;
         private RadioButton SmallRadioButton;
+        private Button ClearButton;
     }
 }
