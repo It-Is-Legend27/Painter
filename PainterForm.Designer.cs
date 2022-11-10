@@ -35,6 +35,9 @@
             this.BlackRadioButton = new System.Windows.Forms.RadioButton();
             this.RedRadioButton = new System.Windows.Forms.RadioButton();
             this.SizeGroupBox = new System.Windows.Forms.GroupBox();
+            this.EnterButton = new System.Windows.Forms.Button();
+            this.SizeTextBox = new System.Windows.Forms.TextBox();
+            this.CustomSizeRadioButton = new System.Windows.Forms.RadioButton();
             this.LargeRadioButton = new System.Windows.Forms.RadioButton();
             this.MediumRadioButton = new System.Windows.Forms.RadioButton();
             this.SmallRadioButton = new System.Windows.Forms.RadioButton();
@@ -48,7 +51,7 @@
             this.PaintPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PaintPanel.Location = new System.Drawing.Point(180, 23);
             this.PaintPanel.Name = "PaintPanel";
-            this.PaintPanel.Size = new System.Drawing.Size(402, 333);
+            this.PaintPanel.Size = new System.Drawing.Size(402, 435);
             this.PaintPanel.TabIndex = 0;
             this.PaintPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PainterPanel_MouseDown);
             this.PaintPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PainterPanel_MouseMove);
@@ -115,15 +118,49 @@
             // 
             // SizeGroupBox
             // 
+            this.SizeGroupBox.Controls.Add(this.EnterButton);
+            this.SizeGroupBox.Controls.Add(this.SizeTextBox);
+            this.SizeGroupBox.Controls.Add(this.CustomSizeRadioButton);
             this.SizeGroupBox.Controls.Add(this.LargeRadioButton);
             this.SizeGroupBox.Controls.Add(this.MediumRadioButton);
             this.SizeGroupBox.Controls.Add(this.SmallRadioButton);
-            this.SizeGroupBox.Location = new System.Drawing.Point(12, 216);
+            this.SizeGroupBox.Location = new System.Drawing.Point(12, 205);
             this.SizeGroupBox.Name = "SizeGroupBox";
-            this.SizeGroupBox.Size = new System.Drawing.Size(122, 140);
+            this.SizeGroupBox.Size = new System.Drawing.Size(122, 239);
             this.SizeGroupBox.TabIndex = 2;
             this.SizeGroupBox.TabStop = false;
             this.SizeGroupBox.Text = "Size";
+            // 
+            // EnterButton
+            // 
+            this.EnterButton.Enabled = false;
+            this.EnterButton.Location = new System.Drawing.Point(27, 190);
+            this.EnterButton.Name = "EnterButton";
+            this.EnterButton.Size = new System.Drawing.Size(71, 34);
+            this.EnterButton.TabIndex = 4;
+            this.EnterButton.Text = "Enter";
+            this.EnterButton.UseVisualStyleBackColor = true;
+            this.EnterButton.Click += new System.EventHandler(this.EnterButton_Click);
+            // 
+            // SizeTextBox
+            // 
+            this.SizeTextBox.Enabled = false;
+            this.SizeTextBox.Location = new System.Drawing.Point(27, 156);
+            this.SizeTextBox.Name = "SizeTextBox";
+            this.SizeTextBox.Size = new System.Drawing.Size(71, 33);
+            this.SizeTextBox.TabIndex = 6;
+            // 
+            // CustomSizeRadioButton
+            // 
+            this.CustomSizeRadioButton.AutoSize = true;
+            this.CustomSizeRadioButton.Location = new System.Drawing.Point(27, 124);
+            this.CustomSizeRadioButton.Name = "CustomSizeRadioButton";
+            this.CustomSizeRadioButton.Size = new System.Drawing.Size(84, 25);
+            this.CustomSizeRadioButton.TabIndex = 5;
+            this.CustomSizeRadioButton.TabStop = true;
+            this.CustomSizeRadioButton.Text = "Custom";
+            this.CustomSizeRadioButton.UseVisualStyleBackColor = true;
+            this.CustomSizeRadioButton.CheckedChanged += new System.EventHandler(this.SizeRadioButton_CheckChanged);
             // 
             // LargeRadioButton
             // 
@@ -162,7 +199,7 @@
             // 
             // ClearButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(12, 377);
+            this.ClearButton.Location = new System.Drawing.Point(12, 450);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(122, 29);
             this.ClearButton.TabIndex = 3;
@@ -174,7 +211,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 430);
+            this.ClientSize = new System.Drawing.Size(598, 489);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.SizeGroupBox);
             this.Controls.Add(this.ColorGroupBox);
@@ -204,5 +241,8 @@
         private RadioButton MediumRadioButton;
         private RadioButton SmallRadioButton;
         private Button ClearButton;
+        private RadioButton CustomSizeRadioButton;
+        private TextBox SizeTextBox;
+        private Button EnterButton;
     }
 }
