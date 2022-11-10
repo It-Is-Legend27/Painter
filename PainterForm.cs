@@ -13,7 +13,7 @@ namespace Painter
 {
     public partial class PainterForm : Form
     {
-        // Types of brush sizes to be picked by radio buttons
+        // Types of brush sizes to be picked by size radio buttons
         private enum BrushSizes
         {
             Small = 4,

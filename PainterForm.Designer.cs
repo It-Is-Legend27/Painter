@@ -51,7 +51,7 @@
             this.PaintPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PaintPanel.Location = new System.Drawing.Point(180, 23);
             this.PaintPanel.Name = "PaintPanel";
-            this.PaintPanel.Size = new System.Drawing.Size(402, 435);
+            this.PaintPanel.Size = new System.Drawing.Size(402, 421);
             this.PaintPanel.TabIndex = 0;
             this.PaintPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PainterPanel_MouseDown);
             this.PaintPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PainterPanel_MouseMove);
